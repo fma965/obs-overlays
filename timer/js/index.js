@@ -46,22 +46,23 @@ window.addEventListener("load", function() {
 }, false);
 
 function onMessage(data) {
-    document.getElementsByClassName("slider")[0].style.display = "none"; 
     if(data['action'] == "set-timer") { 
-        if (data.hasOwnProperty('time')) {
-            resetTimer()
-            document.getElementById("time").innerHTML = data['time'];
-            startTimer()
-        }
+      document.getElementsByClassName("slider")[0].style.display = "none"; 
+      resetTimer()
+      if (data.hasOwnProperty('time')) {
+        document.getElementById("time").innerHTML = data['time']; 
+      }
+      startTimer()
     }
     if(data['action'] == "start-timer") { 
-        startTimer()
+      document.getElementsByClassName("slider")[0].style.display = "none"; 
+      startTimer()
     }
     if(data['action'] == "pause-timer") { 
-        pauseTimer()
+      pauseTimer()
     }
     if(data['action'] == "reset-timer") { 
-        resetTimer()
+      resetTimer()
     }
 }
 
