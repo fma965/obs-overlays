@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>God Gamer Challenge Controller</title>
+	<script
+		src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
+		integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8="
+		crossorigin="anonymous"></script>
+	<script src="js/secret.js"></script>
+	<link rel="stylesheet" href="../css/bootstrap-darkly.min.css">
+</head>
+<body>
+<div class="container-fluid my-3">
+	<div class="row">
+		<div class="col-md">
+			<div class="card">
+				<div class="card-body">
+					<h5 class="card-title">Time (hhh:mm:ss)</h5>
+						<div id="form-games" class="form-group">
+							<input class="form-control" type="text" id="time" value="00:00:00">
+						</div>
+						<div style="display:flex">
+							<button class="form-control btn btn-primary mx-1" onclick='setTimer()'>Set & Start</button>
+							<button class="form-control btn btn-info mx-1" onclick='pauseTimer()'>Pause</button>
+							<button class="form-control btn btn-danger mx-1" onclick='resetTimer();'>Reset</button>
+						</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md">
+			<div class="card">
+				<div class="card-body">
+					<h5 class="card-title">Connection settings</h5>
+					<div class="form-row">
+						<div class="form-group col">
+							<label for="WEBSOCKET_URI">Websocket URI:</label>
+							<div class="input-group">
+								<input id="WEBSOCKET_URI" class="form-control" value="" placeholder="">
+								<button class="form-control btn btn-success col-3" onclick='doConnect();' id="btt_connect">Connect</button>
+								<button class="form-control btn btn-danger col-3" onclick='doDisconnect();' id="btt_disconnect">Disconnect</button>
+							</div>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-group col">
+							<label for="inputtext">Custom command:</label>
+							<div class="input-group">
+								<input id="inputtext" class="form-control" type="text" placeholder="Command">
+								<div class="input-group-append">
+									<button class="form-control btn btn-primary" onclick='sendCommand(JSON.parse(document.getElementById("inputtext").value));'>Send command</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-group col">
+							<label for="outputtext">Console:</label>
+							<textarea id="outputtext" class="form-control" style="height: 10rem; font-size: 80%; font-family: monospace;" readonly></textarea>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-group col">
+							<label for="notes">Overlay URL's (Right Click > Copy Link)</label>
+							<br>
+							<a href="/timer/">Stopwatch Overlay</a> <br>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="../js/controller.js"></script>
+<script src="js/controller.js"></script>
+</body>
+</html>
