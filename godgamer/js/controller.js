@@ -33,6 +33,10 @@ function updateAttempts() {
 	sendCommand({"action": "setattempts", "attempts": document.getElementById("attempts").value});
 }
 
+function updateStreak() {
+	sendCommand({"action": "setstreak", "streak": document.getElementById("streak").value});
+}
+
 function onMessage(data) {
 	if (data.hasOwnProperty('games')) {
         i = 1;
@@ -53,6 +57,9 @@ function onMessage(data) {
 	if (data.hasOwnProperty('attempts')) {
         document.getElementById("attempts").value = data['attempts'];
     }
+	if (data.hasOwnProperty('streak')) {
+        document.getElementById("streak").value = data['streak'];
+    }
 	if(data['action'] == "next") {
         document.getElementById("currentgame").value++;
     }
@@ -65,5 +72,6 @@ function onMessage(data) {
 function sendAll() {
 	setGames();
 	updateCurrentGame();
-	updateAttempts()
+	updateAttempts();
+	updateStreak();
 }

@@ -38,6 +38,10 @@
 						<div class="input-group mb-3">
 							<input class="form-control" type="number" min="1" id="attempts" value="1">
 						</div>
+						<label>Streak:</label>
+						<div class="input-group mb-3">
+							<input class="form-control" type="number" min="1" id="streak" value="1">
+						</div>
 					</div>
 					<button class="form-control btn btn-primary" onclick='sendAll();'>Send</button>
 				</div>
@@ -72,6 +76,12 @@
 						<div class="form-group col">
 							<label for="outputtext">Console:</label>
 							<textarea id="outputtext" class="form-control" style="height: 10rem; font-size: 80%; font-family: monospace;" readonly></textarea>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-group col">
+							<label for="notes">Notes:</label>
+							<textarea id="notes" class="form-control" style="height: 10rem; font-size: 80%; font-family: monospace;" placeholder="These are not saved between sessions"></textarea>
 						</div>
 					</div>
 				</div>

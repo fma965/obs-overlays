@@ -5,6 +5,11 @@ body {
   color: white;
 }
 
+.slider {
+  position: relative;
+  height: 200px;
+}
+
 .slide {
   position: absolute;
   top: 60px;
@@ -36,7 +41,7 @@ body {
 .slide img { 
   height: 80px;
   width: 80px;
-  border-radius: 50%;
+  border-radius: 50px;
   margin: 0px 0px 0px 5px;
 }
 
@@ -57,11 +62,7 @@ body {
 }
 
 .stat {
-  position: absolute;
-  padding:10px;
-  top: 200px;
-  left: 149px;
-  width: 300px;
+  padding:10px 30px;
   border-radius: 15px;
   font-size: 32px;
   background-color: rgba(0, 0, 0, 0.45);
@@ -79,6 +80,29 @@ body {
   font-weight: normal;
 }
 
-#nextgame, #count, .stat {
+#nextgame, #count, .stats {
   display: none;
+}
+
+.stats {
+  width: 600px;
+  justify-content: space-evenly;
+}
+
+#all .slider { 
+  height: 1060px; 
+}
+
+#all .slide, .stats {
+  position: inherit;
+  opacity: 1;
+  margin-bottom: 10px;
+} 
+
+#all .next, .prev { 
+  transform: none;
+} 
+
+#all .slide--active { 
+  background: #3891ac;  
 }

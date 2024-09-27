@@ -30,7 +30,12 @@ connectWebsocket = function() {
     };
 };
 
-window.addEventListener("load", function() { connectWebsocket(); }, false);
+window.addEventListener("load", function() { 
+    if(window.location.search == "?all") {
+        document.body.id = 'all';
+    } 
+    connectWebsocket(); 
+}, false);
 
 function onMessage(data) {
     if(data['action'] == "reset") { 
@@ -42,12 +47,17 @@ function onMessage(data) {
         document.getElementById("nextgame").innerHTML++
         next = +document.getElementById("nextgame").innerHTML;
         count = +document.getElementById("count").innerHTML;
+        streak = +document.getElementById("streak").innerHTML
+
         if(next <= count)
             Rotate(next);
 
+        if(streak < next)
+            document.getElementById("streak").innerHTML = next -1;
+
     } else if(data['action'] == "setgames") {
         i = 1;
-        document.getElementsByClassName("stat")[0].style.display = "flex"; 
+        document.getElementsByClassName("stats")[0].style.display = "flex"; 
         document.getElementsByClassName("slider")[0].innerHTML = "";
         count = data['games'].length;
         document.getElementById("count").innerHTML = count;
@@ -71,6 +81,10 @@ function onMessage(data) {
 
     if (data.hasOwnProperty('attempts')) {
         document.getElementById("attempt").innerHTML = data['attempts'];
+    }
+
+    if (data.hasOwnProperty('streak')) {
+        document.getElementById("streak").innerHTML = data['streak'];
     }
 }
 
