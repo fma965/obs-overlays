@@ -47,7 +47,7 @@ function onMessage(data) {
 
     } else if(data['action'] == "setgames") {
         i = 1;
-        document.getElementsByClassName("stat")[0].style.display === "block";
+        document.getElementsByClassName("stat")[0].style.display = "flex"; 
         document.getElementsByClassName("slider")[0].innerHTML = "";
         count = data['games'].length;
         document.getElementById("count").innerHTML = count;
