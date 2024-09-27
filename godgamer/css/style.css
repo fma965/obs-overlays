@@ -103,7 +103,7 @@ body {
   top: 10px;
 } 
 
-#all .next, .prev { 
+#all .next, #all .prev { 
   transform: none;
 } 
 
