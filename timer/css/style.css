@@ -12,3 +12,7 @@ body {
     color: white;
     text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5), 0px -2px 5px rgba(0, 0, 0, 0.5), -2px 0px 5px rgba(0, 0, 0, 0.5), 2px 0px 5px rgba(0, 0, 0, 0.5);
 }
+
+.hundredths { 
+  font-size: 18px;
+}

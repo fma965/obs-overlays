@@ -138,15 +138,18 @@ function resetTimer(){
 /**This function is to display the time.**/
 
 function getShowTime(){
-  updatedTime = + new Date();
-  difference =  updatedTime - startTime;
+  updatedTime = +new Date();
+  difference = updatedTime - startTime;
+  
   var hours = Math.floor((difference % (1000 * 60 * 60 * 1000)) / (1000 * 60 * 60));
   var minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
   var seconds = Math.floor((difference % (1000 * 60)) / 1000);
-  //var milliseconds = Math.floor((difference % (1000 * 60)) / 100);
+  var hundredths = Math.floor((difference % 1000) / 10);
+  
   hours = (hours < 10) ? "0" + hours : hours;
   minutes = (minutes < 10) ? "0" + minutes : minutes;
   seconds = (seconds < 10) ? "0" + seconds : seconds;
-  //milliseconds = (milliseconds < 100) ? (milliseconds < 10) ? "00" + milliseconds : "0" + milliseconds : milliseconds;
-  timerDisplay.innerHTML = hours + ':' + minutes + ':' + seconds;
+  hundredths = (hundredths < 10) ? "0" + hundredths : hundredths;
+  
+  timerDisplay.innerHTML = hours + ':' + minutes + ':' + seconds + '<span class="hundredths">.' + hundredths + '</span>';
 }
