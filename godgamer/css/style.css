@@ -90,13 +90,17 @@ body {
 }
 
 #all .slider { 
-  height: 1060px; 
+  height: 1010px; 
 }
 
 #all .slide, .stats {
   position: inherit;
   opacity: 1;
   margin-bottom: 10px;
+} 
+
+#all .slide {
+  top: 10px;
 } 
 
 #all .next, .prev { 
