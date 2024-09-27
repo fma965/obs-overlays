@@ -61,6 +61,13 @@ function onMessage(data) {
     if(data['action'] == "pause-timer") { 
       pauseTimer()
     }
+    if(data['action'] == "toggle-timer") { 
+      if(running) {
+        pauseTimer()
+      } else {
+        startTimer()
+      }
+    }
     if(data['action'] == "reset-timer") { 
       resetTimer()
     }
