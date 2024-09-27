@@ -56,7 +56,7 @@ function onMessage(data) {
             card = '<div id="game'+i+'" class="slide slide--active" data-slide="'+i+'">\
                     <img src="'+game.image+'"/>\
                     <p class="title">'+game.name+'</p>\
-                    <p><sup>'+i+'</sup>&frasl;<sub>'+count+'</sub></p>\
+                    <p class="number"><sup>'+i+'</sup>&frasl;<sub>'+count+'</sub></p>\
                     </div>'
             document.getElementsByClassName("slider")[0].innerHTML += card;
             i++;
