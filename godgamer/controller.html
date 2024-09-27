@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>God Gamer Challenge Controller</title>
+	<script
+		src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
+		integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8="
+		crossorigin="anonymous"></script>
+	<script src="js/secret.js"></script>
+	<link rel="stylesheet" href="../css/bootstrap-darkly.min.css">
+</head>
+<body>
+<div class="container-fluid my-3">
+	<div class="row">
+		<div class="col-md">
+			<div class="card">
+				<div class="card-body">
+					<h5 class="card-title">Games / Image URL's</h5>
+						<div id="form-games" class="form-group">
+							<div class="form-game" style="display: flex;" data-number="1">
+								<input class="form-control col-6 game" type="text" value="Game 1">
+								<input class="form-control col-6 image" type="text" value="Image 1">
+							</div>
+						</div>
+						<div class="form-group">
+							<button class="form-control btn btn-success col-3" onclick='addGame();'>Add</button>
+							<button class="form-control btn btn-danger col-3" onclick='removeGame();'>Remove</button>
+							<span class="col-6"></span>
+						</div>
+						
+					<div class="form-group">
+						<label>Current Game ID:</label>
+						<div class="input-group mb-3">
+							<input class="form-control" type="number" min="1" id="currentgame" value="1">
+						</div>
+						<label>Attempts:</label>
+						<div class="input-group mb-3">
+							<input class="form-control" type="number" min="1" id="attempts" value="1">
+						</div>
+					</div>
+					<button class="form-control btn btn-primary" onclick='sendAll();'>Send</button>
+				</div>
+			</div>
+		</div>
+		<div class="col-md">
+			<div class="card">
+				<div class="card-body">
+					<h5 class="card-title">Connection settings</h5>
+					<div class="form-row">
+						<div class="form-group col">
+							<label for="WEBSOCKET_URI">Websocket URI:</label>
+							<div class="input-group">
+								<input id="WEBSOCKET_URI" class="form-control" value="" placeholder="">
+								<button class="form-control btn btn-success col-3" onclick='doConnect();' id="btt_connect">Connect</button>
+								<button class="form-control btn btn-danger col-3" onclick='doDisconnect();' id="btt_disconnect">Disconnect</button>
+							</div>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-group col">
+							<label for="inputtext">Custom command:</label>
+							<div class="input-group">
+								<input id="inputtext" class="form-control" type="text" placeholder="Command">
+								<div class="input-group-append">
+									<button class="form-control btn btn-primary" onclick='sendCommand(JSON.parse(document.getElementById("inputtext").value));'>Send command</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-group col">
+							<label for="outputtext">Console:</label>
+							<textarea id="outputtext" class="form-control" style="height: 10rem; font-size: 80%; font-family: monospace;" readonly></textarea>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="../js/controller.js"></script>
+<script src="js/controller.js"></script>
+</body>
+</html>
