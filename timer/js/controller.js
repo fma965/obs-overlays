@@ -15,7 +15,3 @@ function pauseTimer() {
 function restTimer() {
 	sendCommand({"action": "reset-timer"});
 }
-
-
-function onMessage(data) {
-}

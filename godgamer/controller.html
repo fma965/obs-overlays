@@ -29,18 +29,21 @@
 							<span class="col-6"></span>
 						</div>
 						
-					<div class="form-group">
-						<label>Current Game ID:</label>
-						<div class="input-group mb-3">
-							<input class="form-control" type="number" min="1" id="currentgame" value="1">
+					<div class="form-group row flex-nowrap ">
+						
+						<div class="input-group mb-3 col-4">
+							<label>Current Game ID:</label>
+							<input class="form-control w-100" type="number" min="1" id="currentgame" value="1">
 						</div>
-						<label>Attempts:</label>
-						<div class="input-group mb-3">
+						
+						<div class="input-group mb-3 col-4">
+							<label>Attempts:</label>
 							<input class="form-control" type="number" min="1" id="attempts" value="1">
 						</div>
-						<label>Streak:</label>
-						<div class="input-group mb-3">
-							<input class="form-control" type="number" min="1" id="streak" value="1">
+						
+						<div class="input-group mb-3 col-4">
+							<label>Streak:</label>
+							<input class="form-control " type="number" min="1" id="streak" value="1">
 						</div>
 					</div>
 					<button class="form-control btn btn-primary" onclick='sendAll();'>Send</button>
