@@ -5,13 +5,13 @@ connectWebsocket = function() {
     // Modify this URL to point to the IP address and port where your server is running on
 	websocket = new WebSocket(WEBSOCKET_URI);
 	websocket.onopen = function(event) {
-        document.getElementsByClassName("slider")[0].innerHTML = "<h1>Ready: Awaiting game list from WebSocket...</h1>";
+        document.getElementsByClassName("slider")[0].innerHTML = "<h1>Awaiting games via WebSocket...</h1>";
         socketIsOpen = true;
         clearInterval(intervalID);
         intervalID = 0;
     };
 	websocket.onclose = function(event) {
-        document.getElementsByClassName("slider")[0].innerHTML = "<h1>Closed: Connection to WebSocket closed</h1>";
+        document.getElementsByClassName("slider")[0].innerHTML = "<h1>Connection to WebSocket closed</h1>";
         socketIsOpen = false;
         if (!intervalID) {
             intervalID = setInterval(connectWebsocket, 5000);
@@ -22,7 +22,7 @@ connectWebsocket = function() {
         window.onMessage(messageObject);
     };
 	websocket.onerror = function(event) {
-        document.getElementsByClassName("slider")[0].innerHTML = "<h1>Error: Unable to connect to WebSocket</h1>";
+        document.getElementsByClassName("slider")[0].innerHTML = "<h1>Unable to connect WebSocket</h1>";
         socketIsOpen = false;
         if (!intervalID) {
             intervalID = setInterval(connectWebsocket, 5000);
