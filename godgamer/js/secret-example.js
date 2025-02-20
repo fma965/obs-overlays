@@ -1,1 +1,0 @@
-WEBSOCKET_URI = "wss://DOMAIN.TLD/ws/godgamer";
