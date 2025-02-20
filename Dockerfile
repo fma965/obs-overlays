@@ -5,5 +5,5 @@ LABEL maintainer="Fma965" \
 
 COPY . /app
 
-RUN sed -i "s|WEBSOCKET_URI = \".*\"|WEBSOCKET_URI = \"$WEBSOCKET_URI\"|" /app/godgamer/js/secret.js
-RUN sed -i "s|WEBSOCKET_URI = \".*\"|WEBSOCKET_URI = \"$WEBSOCKET_URI\"|" /app/timer/js/secret.js
+COPY set-secret.sh /entrypoint.d/set-secret.sh
+RUN chmod +x /entrypoint.d/set-secret.sh
