@@ -1,4 +1,3 @@
 #!/bin/sh
-touch /app/test.txt
-sed -i "s|WEBSOCKET_URI = \".*\"|WEBSOCKET_URI = \"$WEBSOCKET_URI\"|" /app/godgamer/js/secret.js
-sed -i "s|WEBSOCKET_URI = \".*\"|WEBSOCKET_URI = \"$WEBSOCKET_URI\"|" /app/timer/js/secret.js
+sed -i "s|WEBSOCKET_URI = \".*\"|WEBSOCKET_URI = \"$WEBSOCKET_URI\"|" /usr/share/nginx/html/godgamer/js/secret.js
+sed -i "s|WEBSOCKET_URI = \".*\"|WEBSOCKET_URI = \"$WEBSOCKET_URI\"|" /usr/share/nginx/html/timer/js/secret.js

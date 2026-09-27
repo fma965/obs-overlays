@@ -1,9 +1,11 @@
-FROM webdevops/nginx:alpine
+FROM nginxinc/nginx-unprivileged:stable-alpine
 
 LABEL maintainer="Fma965" \
     description="nginx obs-overlays"
 
-COPY . /app
+COPY --chown=nginx:nginx . /usr/share/nginx/html
 
-COPY set-secret.sh /entrypoint.d/set-secret.sh
-RUN chmod +x /entrypoint.d/set-secret.sh
+COPY --chown=nginx:nginx set-secret.sh /docker-entrypoint.d/40-set-secret.sh
+RUN chmod +x /docker-entrypoint.d/40-set-secret.sh
+
+EXPOSE 8080
