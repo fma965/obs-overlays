@@ -7,11 +7,17 @@ LABEL maintainer="Fma965" \
 USER root
 
 COPY --chown=nginx:nginx . /usr/share/nginx/html
-RUN rm -f /usr/share/nginx/html/Dockerfile /usr/share/nginx/html/.dockerignore \
-    /usr/share/nginx/html/README.md /usr/share/nginx/html/set-secret.sh
+RUN rm -rf /usr/share/nginx/html/Dockerfile /usr/share/nginx/html/.dockerignore \
+    /usr/share/nginx/html/README.md /usr/share/nginx/html/templates && \
+    chown nginx:nginx /usr/share/nginx/html
 
-COPY --chown=nginx:nginx set-secret.sh /docker-entrypoint.d/40-set-secret.sh
-RUN chmod +x /docker-entrypoint.d/40-set-secret.sh
+# WEBSOCKET_URI is injected at container start by the base image's own
+# /docker-entrypoint.d/20-envsubst-on-templates.sh, which runs envsubst over
+# these templates and writes the result to the matching path under the docroot.
+COPY --chown=nginx:nginx templates/ /etc/nginx/html-templates/
+ENV NGINX_ENVSUBST_TEMPLATE_DIR=/etc/nginx/html-templates \
+    NGINX_ENVSUBST_OUTPUT_DIR=/usr/share/nginx/html \
+    NGINX_ENVSUBST_FILTER='^WEBSOCKET_URI$'
 
 USER nginx
 
