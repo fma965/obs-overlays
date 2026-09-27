@@ -1,6 +1,2 @@
 .git
 .github
-Dockerfile
-.dockerignore
-README.md
-set-secret.sh
